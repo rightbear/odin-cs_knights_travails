@@ -43,7 +43,10 @@ function knightMoves(start, end) {
         const position = current[1];
 
         if((position[0] === end[0]) && (position[1] === end[1])) {
-            return result;
+            console.log(`=> You made it in ${result.length - 1} moves!  Here's your path:`);
+            for(let node of result) {
+                console.log(node);
+            }
         }
 
         // get all adjacent vertices of the dequeued vertex current, and enquene all vertices into quene
@@ -52,16 +55,16 @@ function knightMoves(start, end) {
         if (nextPositions.length > 0) {
             // enquene all unvisited adjacent vertices
             for(const nextPos of nextPositions) {
-                    // mark the position of next node as visited
-                    visited[nextPos[0]][nextPos[1]] = true;
+                // mark the position of next node as visited
+                visited[nextPos[0]][nextPos[1]] = true;
 
-                    // record the position of next node into the path
-                    const nextResult = [...result];
-                    nextResult.push(nextPos);
+                // record the position of next node into the path
+                const nextResult = [...result];
+                nextResult.push(nextPos);
 
-                    quene.push([nextResult, nextPos]);
-                }
+                quene.push([nextResult, nextPos]);
             }
+        }
     }
 }
 
