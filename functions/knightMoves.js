@@ -92,7 +92,7 @@ function getNext(start, visited) {
   let nextPositions = [];
 
   // all posible directions knight can move to
-  const moves = [
+  const KNIGHT_OFFSETS = [
     [2, 1],
     [1, 2],
     [-1, 2],
@@ -103,7 +103,7 @@ function getNext(start, visited) {
     [2, -1],
   ];
 
-  for (const [dx, dy] of moves) {
+  for (const [dx, dy] of KNIGHT_OFFSETS) {
     const nextX = start[0] + dx;
     const nextY = start[1] + dy;
 
